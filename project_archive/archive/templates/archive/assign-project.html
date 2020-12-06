@@ -1,0 +1,60 @@
+{% extends 'archive/adminbase.html' %}
+{% load widget_tweaks %}
+
+
+{% block admin-content %}
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4">
+        <img
+          src="https://www.flaticon.com/svg/static/icons/svg/21/21104.svg"
+          alt="" class="img img-thumbnail img-rounded">
+        <br><br>
+        <h4 class="text-center">CS/ND/F18/COM226</h4>
+      </div>
+      <div class="col-md-8">
+        <ul class="list-group list-group-flush">
+
+          <li class="list-group-item">
+            <h5>Matric No: </h5>
+            <h3>CS/ND/F18/COM226</h3>
+          </li>
+          <li class="list-group-item">
+            <h5>First Name: </h5>
+            <h3>Web</h3>
+          </li>
+          <li class="list-group-item">
+            <h5>Last Name: </h5>
+            <h3>Technology</h3>
+          </li>
+        </ul>
+
+        <div class="ml-4">
+          <h5 class="mt-2">Assign Project</h5>
+          <select class="mb-2 browser-default custom-select">
+            <option selected>Choose project</option>
+            <option value="1">DESIGN AND IMPLEMENTATION OF CAMPUS ONLINE HELP DESK INFORMATION SYSTEM</option>
+            <option value="2">DESIGN AND DEVELOPMENT OF PERSONNEL INFORMATION SYSTEM</option>
+            <option value="3">DESIGN AND IMPLEMENTATION OF STUDENT EVALUATION PROGRAM</option>
+          </select>
+
+
+          <h5 class="mt-2">Choose Supervisor</h5>
+          <select class="mb-2 browser-default custom-select">
+            <option selected>Choose Supervisor</option>
+            <option value="1">Mr Samson</option>
+            <option value="2">Mr Joshua</option>
+            <option value="3">Mr's Blessing</option>
+            <option value="3">Mr Faith</option>
+          </select>
+
+          <a href="" class="btn btn-primary">Assign project</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock admin-content %}

@@ -1,0 +1,62 @@
+{% extends 'archive/base.html' %}
+
+{% block content %}
+<div class="container">
+  <h3 class="mt-4">Latest Uploaded Projects</h3>
+  
+  {% if archives %}
+    {% for archive in archives %}
+      <div class="row mb-4 fadeIn">
+        <div class="col-md-8">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-md-2">
+                  <span>Uploaded by {{ archive.added_by.username }}</span>
+                </div>
+                <div class="col-md-10">
+                  <!-- project title -->
+                  <h3><a href="">{{ archive.title }}</a></h3>
+                  <p>{{ archive.description|slice:"0:100"}}</p>
+                  <small>Uploaded on {{ archive.date_uploaded}}</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card">
+            <div class="card-header">Most Popular Projects</div>
+            <div class="card-body">
+              <ul>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+                <li>Lorem ipsum dolor sit amet.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endfor %} 
+  {% endif %}
+
+  <div class="row">
+    <div class="col-md-8">
+      <div class="card">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-2">
+              <span>Uploaded by Sherluck</span>
+            </div>
+            <div class="col-md-10">
+              <!-- project title -->
+              <h5><a href="">Group 4 project for COM 225</a></h5>
+              <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Amet ex, blanditiis maiores suscipit commodi labore, placeat quas officia magnam numquam aperiam odio laborum aspernatur ab? Nisi eaque repellat at cumque.</p>
+              <small class="lead">Uploaded on 29-10-2020</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% endblock content %}

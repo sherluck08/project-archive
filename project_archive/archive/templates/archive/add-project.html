@@ -1,0 +1,39 @@
+{% extends 'archive/adminbase.html' %}
+{% load widget_tweaks %}
+
+{% block admin-top-cards %}{% endblock admin-top-cards %}
+
+{% block admin-content %}
+<h3>Add Project</h3>
+<div class="row mt-2">
+  <div class="col-md-8 align-items-center">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title text-center">Add Project</h4>
+        {% for error in form.errors %}
+        <span>{{ error }}</span>
+        {% endfor %}
+        <form action="" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="md-form">
+            <p>{{ form.title.errors }}</p>
+            {{ form.title | add_class:"form-control" }}
+            <label for="input-char-counter">{{ form.title.label }}</label>
+          </div>
+
+          <div class="md-form">
+            <p>{{ form.description.errors }}</p>
+            {{ form.description | add_class:"md-textarea form-control" |attr:"rows:4" }}
+            <label for="form7">{{ form.description.label }}</label>
+          </div>
+          
+          <div class="input-group">
+            <button type="submit" class="btn btn-primary btn-md">Add Project</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock admin-content %}

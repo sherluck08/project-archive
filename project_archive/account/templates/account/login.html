@@ -1,0 +1,59 @@
+{% extends 'archive/base.html' %}
+{% load widget_tweaks %}
+
+{% block navbar %}{% endblock navbar %}
+
+{% block content %}
+  <div class="signup">
+  <h3 class="mt-6 text-center">Assigment on Project allocation and project achiving System COM 226 GROUP 4 FT</h3>
+  <div class="mt-4 row justify-content-center align-items-center">
+    <div class="col-md-4 ">
+      <div class="card">
+        <h5 class="card-header info-color white-text text-center py-4">
+          <strong>Welcome Back, Sign in</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+          {% if messages %} 
+            {% for message in messages %}
+              <div class="alert alert-{{ message.tag }}" role="alert">
+                {{ message }}
+              </div>
+            {% endfor %}
+          {% endif %}
+          {% if form.errors %}
+            <p>Your username and password didn't match. Please try again.</p>
+          {% endif %}
+          <!-- Form -->
+          <form class="text-center" style="color: #757575;" action="" method="POST">
+            {% csrf_token %}
+            <div class="md-form">
+              <input type="text" class="form-control" name="username">
+              <label>Username</label>
+            </div>
+
+            <!-- Password -->
+            <div class="md-form">
+              <input type="password" class="form-control" name="password">
+              <label>Password</label>
+            </div>
+
+            <!-- Sign in button -->
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+              type="submit">Login 
+            </button>
+
+            <!-- Register -->
+            <p>New User?
+              <a href="{% url 'register' %}">Register</a>
+            </p>
+          </form>
+          <!-- Form -->
+        </div>
+      </div>
+      <!-- Material form login -->
+    </div>
+  </div>
+</div>
+{% endblock content %}

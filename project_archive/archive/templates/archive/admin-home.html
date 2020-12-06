@@ -1,0 +1,61 @@
+{% extends 'archive/adminbase.html' %}
+
+{% block admin-content %}
+<h4>All Students.</h4>
+<div class="card">
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Matric No</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Assigned Projects Status</th>
+            <th scope="col">Submitted</th>
+            <th scope="col">Assign Project</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td><a href="" class="text-primary">CS/ND/F18/3211</a></td>
+            <td>Mr</td>
+            <td>Samson</td>
+            <td>Yes</td>
+            <td>Yes</td>
+            <td><a href="{% url 'assign-project' %}" class="btn btn-primary btn-sm">Assign Project</a></td>
+          </tr>
+          <tr>
+            <th scope="row">1</th>
+            <td><a href="" class="text-primary">CS/ND/F18/3232</a></td>
+            <td>Mr</td>
+            <td>Demola</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td><a href="" class="text-primary">CS/ND/F18/3164</a></td>
+            <td>AbdulWahab</td>
+            <td>Sherifdeen</td>
+            <td>No</td>
+            <td>No</td>
+            <td><a href="{% url 'assign-project' %}" class="btn btn-primary btn-sm">Assign Project</a></td>
+
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td><a href="" class="text-primary">CS/ND/F18/3343</a></td>
+            <td>Mr</td>
+            <td>Joshua</td>
+            <td>Yes</td>
+            <td>Yes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock admin-content %}

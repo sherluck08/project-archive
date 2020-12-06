@@ -1,0 +1,77 @@
+{% extends 'archive/base.html' %}
+{% load widget_tweaks %}
+
+{% block navbar %}{% endblock navbar %}
+
+
+{% block content %}
+<div class="signup" style="height: 100vh;">
+  <div class="row justify-content-center">
+    <div class="col-md-5 align-items-center">
+
+      <div class="card">
+
+        <h5 class="card-header info-color white-text text-center py-4">
+          <strong>Create an account</strong>
+        </h5>
+
+        <!--Card content-->
+        <div class="card-body px-lg-5 pt-0">
+
+          <!-- Form -->
+          <form class="text-center" style="color: #757575;" action="" method="POST">
+
+            {% csrf_token %}
+            <div class="md-form">
+              {{ form.username | add_class:"form-control" }}
+              <label>{{ form.username.label }}</label>
+            </div>
+
+            <div class="md-form">
+              {{ form.first_name | add_class:"form-control" }}
+              <label>{{ form.first_name.label }}</label>
+            </div>
+
+            <div class="md-form">
+              {{ form.last_name | add_class:"form-control" }}
+              <label>{{ form.last_name.label }}</label>
+            </div>
+
+            <div class="md-form">
+              {{ form.matric_no | add_class:"form-control" }}
+              <label>{{ form.matric_no.label }}</label>
+            </div>
+
+            <!-- Password -->
+            <div class="md-form">
+              {{ form.password1 | add_class:"form-control" }}
+              <label>{{ form.password1.label }}</label>
+            </div>
+
+            <div class="md-form">
+              {{ form.password2 | add_class:"form-control" }}
+              <label>{{ form.password2.label }}</label>
+            </div>
+
+            <!-- Sign in button -->
+            <button class="btn btn-outline-info btn-rounded btn-block my-4 waves-effect z-depth-0"
+              type="submit">Register
+            </button>
+
+            <!-- Register -->
+            <p>Already have an account?
+              <a href="{% url 'login' %}">Login</a>
+            </p>
+
+
+          </form>
+          <!-- Form -->
+
+        </div>
+
+      </div>
+      <!-- Material form login -->
+    </div>
+  </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,194 @@
+{% extends "archive/base.html" %} 
+{% load static %} 
+
+{% block custom_styles %}
+<link rel="stylesheet" href="{% static 'archive/css/style.css' %}" />
+{% endblock custom_styles %} {% block navbar %}{% endblock navbar %} 
+{% block content %}
+<div class="container-for-admin">
+  <!--Main Navigation-->
+  <header>
+    <!-- Navbar -->
+    <nav
+      class="navbar fixed-top navbar-expand-lg navbar-light white scrolling-navbar"
+    >
+      <div class="container-fluid">
+        <!-- Collapse -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <!-- Left -->
+          <ul class="navbar-nav mr-auto">
+            {% if request.user.is_superuser %}
+            <li class="nav-item active">
+              <a class="nav-link waves-effect" href="{% url 'admin-home' %}"
+                >Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href="{% url 'add-project' %}"
+                >Add Project</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                class="nav-link waves-effect"
+                href="{% url 'submitted-project' %}"
+                >Submitted Project</a
+              >
+            </li>
+            
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link waves-effect" href=""
+                >Submit Project</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+
+          <!-- Right -->
+          <ul class="navbar-nav nav-flex-icons">
+            <li class="nav-item">
+              <a
+                href="{% url 'login' %}"
+                class="nav-link waves-effect"
+              >
+                <i class="fas fa-signin"></i> Logout
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar -->
+
+    <!-- Sidebar -->
+    <div class="sidebar-fixed position-fixed">
+      {% if request.user.is_superuser %}
+      <h4 class="mt-4">Admin</h4>
+
+      <div class="list-group list-group-flush">
+        <a href="{% url 'admin-home' %}" class="list-group-item active waves-effect">
+          <i class="fa fa-pie-chart mr-3"></i>Dashboard
+        </a>
+        <a
+          href="{% url 'assign-project' %}"
+          class="list-group-item list-group-item-action waves-effect"
+        >
+          <i class="fa fa-user mr-3"></i>Assign Project</a
+        >
+        <a href="{% url 'add-project' %}" class="list-group-item list-group-item-action waves-effect">
+          <i class="fa fa-table mr-3"></i>Add Project</a
+        >
+        
+        <a href="#" class="list-group-item list-group-item-action waves-effect">
+          <i class="fa fa-money mr-3"></i>Settings</a
+        >
+      </div>
+      {% else %}
+        <div class="list-group list-group-flush">
+          <a href="{% url 'student-home' %}" class="list-group-item active waves-effect">
+            <i class="fa fa-pie-chart mr-3"></i>Dashboard
+          </a>
+          <a
+            href="{% url 'student-submit-project' %}"
+            class="list-group-item list-group-item-action waves-effect"
+          >
+            <i class="fa fa-user mr-3"></i>Submit Project</a
+          >
+          <a href="#" class="list-group-item list-group-item-action waves-effect">
+            <i class="fa fa-table mr-3"></i>Edit Profile</a
+          >
+        </div>
+      {% endif %}
+    </div>
+    <!-- Sidebar -->
+  </header>
+  <!--Main Navigation-->
+
+  <!--Main layout-->
+  <main class="pt-5 mx-lg-5">
+    <div class="container-fluid mt-5">
+      {% block admin-top-cards %}
+      <!-- top cards -->
+      <div class="row mb-2" style="height: 10rem">
+        <div class="col-md-4">
+          <div class="card h-100 bg-primary text-white text-center">
+            <div class="card-body">
+              <div class="row w-100 h-100 justify-content-center">
+                <div class="col align-self-center">
+                  <h5>Total Number of Student</h5>
+                  <br />
+                  <h4>2</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 bg-primary text-white text-center">
+            <div class="card-body">
+              <div class="row w-100 h-100 justify-content-center">
+                <div class="col align-self-center">
+                  <h5>Projects Uploaded</h5>
+                  <br />
+                  <h4>200</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card h-100 bg-primary text-white text-center">
+            <div class="card-body">
+              <div class="row w-100 h-100 justify-content-center">
+                <div class="col align-self-center">
+                  <h5>Assigned Project</h5>
+                  <br />
+                  <h4>8</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- top cards -->
+      {% endblock admin-top-cards %}
+
+      <!--Grid row-->
+      <div class="row wow fadeIn">
+        <!--Grid column-->
+        <div class="col-md-12 mb-4">
+          {% block admin-content %} {% endblock admin-content %}
+        </div>
+        <!--Grid column-->
+      </div>
+      <!--Grid row-->
+
+      <!--Grid row-->
+      <div class="row wow fadeIn"></div>
+      <!--Grid row-->
+    </div>
+  </main>
+  <!--Main layout-->
+
+  <!--Footer-->
+  <footer
+    class="page-footer text-center font-small primary-color-dark darken-2 mt-4 wow fadeIn"
+  ></footer>
+  <!--/.Footer-->
+</div>
+{% endblock content %} {% block footer %}{% endblock footer %}

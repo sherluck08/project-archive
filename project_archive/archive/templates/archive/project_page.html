@@ -1,0 +1,52 @@
+{% extends 'archive/base.html' %}
+
+{% block content %}
+<div class="container">
+  <div class="row mb-4 mt-4">
+    <div class="col-md-8">
+
+      <!-- project title -->
+      <h3><a href="">Group 4 project for COM 225 Computer science</a></h3>
+      <small class="text-muted">Uploaded on 29-10-2020 by Student</small>
+      <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis dignissimos
+        et est cumque ipsa vero eos a voluptates doloremque nulla, quisquam vitae,
+        esse aliquid reiciendis repellat blanditiis dolorem ratione quod.</p>
+
+      <button class="btn btn-primary btn-sm">Download Project files</button>
+
+      <div class="form-group shadow-textarea mt-4">
+        <label for="exampleFormControlTextarea6">What did you think about the project?</label>
+        <textarea class="form-control z-depth-1" id="exampleFormControlTextarea6" rows="4"
+          placeholder="Write something here..." style="width: 70%;"></textarea>
+        <button class="btn btn-primary btn-sm">Add Comment</button>
+      </div>
+
+
+      <h4>Comments</h4>
+      <div class="row">
+        <div class="col-md-2">
+          <i class="fas fa-user fa-4x"></i>
+        </div>
+        <div class="col-md-9">
+          <p>It's an interesting project</p>
+        </div>
+
+      </div>
+
+
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <div class="card-header">Most Popular Projects</div>
+        <div class="card-body">
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock content %}

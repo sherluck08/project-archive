@@ -1,0 +1,42 @@
+{% extends 'archive/adminbase.html' %}
+{% load widget_tweaks %}
+
+{% block admin-top-cards %}{% endblock admin-top-cards %}
+
+{% block admin-content %}
+<h3>Submit Project</h3>
+<div class="row">
+  <div class="col-md-10">
+    <div class="card">
+      <div class="card-body">
+        <form action="">
+          <div class="form-group">
+            <label for="">Topic</label>
+            <select class="mb-2 browser-default custom-select">
+              <option selected>Choose Project</option>
+              <option value="1">DESIGN AND IMPLEMENTATION OF ONLINE HELP DESK</option>
+            </select>
+          </div>
+
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroupFileAddon01">Upload</span>
+            </div>
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="inputGroupFile01"
+                aria-describedby="inputGroupFileAddon01">
+              <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+            </div>
+          </div>
+
+        </form>
+        <div class="form-group">
+          <button class="btn btn-primary btn-sm">
+            Submit
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock admin-content%}
