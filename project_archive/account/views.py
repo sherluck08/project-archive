@@ -25,30 +25,29 @@ def signup(request):
 
 def signin(request):
     logout(request)
-    if request.method == "POST":
-        username = request.POST['username']
-        password = request.POST['password']
-
-        if username.lower() == "group4com226" and password == "1234567":
-            user = authenticate(request, username=username, password=password)
-            if user is not None:
-                login(request, user)
-                if request.user.is_superuser:
-                    # messages.success(
-                    #     request, "You have successfully logged in")
-                    return redirect("admin-home")
-                else:
-                    # messages.success(
-                    #     request, "You have successfully logged in")
-                    return redirect("student-dashboard-home")
-            else:
-                messages.warning(
-                    request, "Your Username and Password doesn't match")
-                return render(request, 'account/login.html')
-        elif (username != "" and password != ""):
-            return redirect("student-home")
-    else:
+    if request.method != "POST":
         return render(request, 'account/login.html')
+    username = request.POST['username']
+    password = request.POST['password']
+
+    if username.lower() == "group4com226" and password == "1234567":
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            if request.user.is_superuser:
+                # messages.success(
+                #     request, "You have successfully logged in")
+                return redirect("admin-home")
+            else:
+                # messages.success(
+                #     request, "You have successfully logged in")
+                return redirect("student-dashboard-home")
+        else:
+            messages.warning(
+                request, "Your Username and Password doesn't match")
+            return render(request, 'account/login.html')
+    elif (username != "" and password != ""):
+        return redirect("student-home")
 
 
 def signout(request):
